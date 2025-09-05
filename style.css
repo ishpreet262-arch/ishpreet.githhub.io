@@ -1,0 +1,176 @@
+/* Veg and Non-Veg Colors */
+.veg {
+  color: #2e7d32; /* Cool green */
+  font-weight: 600;
+}
+
+.non-veg {
+  color: #d84315; /* Warm orange-red */
+  font-weight: 600;
+}
+
+/* Symbols Styling */
+.menu-item::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* Specific Symbols */
+.veg::before {
+  content: '🟢';
+}
+
+.non-veg::before {
+  content: '🔴';
+}
+
+/* Price styling */
+.price {
+  float: right;
+  font-weight: 700;
+  color: #444;
+}
+
+/* Logo styles */
+.logo{
+  width:150px;
+  height:150px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+}
+.logo--landing{
+  width:72px;
+  height:72px;
+  margin-bottom:12px;
+}
+
+/* Keep header layout tidy on small screens */
+.menu-header{
+  position:sticky;top:0;z-index:5;
+  padding-top:56px; /* space for logo + title stack */
+}
+@media (min-width:640px){
+  .menu-header{
+    padding-top:36px;
+  }
+  .menu-header .logo{
+    margin-bottom:6px;
+  }
+}
+
+/* If you want the back button to avoid overlapping the logo */
+.btn.btn--ghost{ top:12px; left:12px }
+
+:root{
+  --gold:#d4af37;
+  --amber:#e6a23c;
+  --dark:#1f2937;
+  --ink:#111827;
+  --cream:#fff8e6;
+  --paper:#ffffff;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,var(--cream),#fff);color:var(--ink)}
+
+.view{min-height:100dvh;display:grid;grid-template-rows:auto 1fr auto;opacity:0;transform:translateY(12px);pointer-events:none;position:absolute;inset:0}
+.view--active{opacity:1;transform:none;pointer-events:auto;position:relative;transition:opacity .35s ease,transform .35s ease}
+
+.hero{padding:48px 16px;text-align:center;background:linear-gradient(135deg,var(--gold),var(--amber));color:#fff;box-shadow:var(--shadow)}
+.brand{font-family:Georgia,serif;letter-spacing:.12em;font-size:clamp(28px,6vw,48px)}
+.tagline{opacity:.95;font-weight:600}
+
+.intro{display:grid;place-items:center;padding:56px 16px;gap:8px}
+.welcome{font-family:Georgia,serif;font-size:clamp(20px,4.5vw,28px);color:var(--dark)}
+.hint{color:var(--muted);margin-bottom:20px}
+
+.btn{appearance:none;border:0;border-radius:14px;padding:14px 28px;font-weight:700;cursor:pointer}
+.btn--primary{background:linear-gradient(135deg,var(--gold),var(--amber));color:#fff;box-shadow:0 8px 20px rgba(212,175,55,.25)}
+.btn--primary:hover{filter:brightness(1.05)}
+.btn--ghost{position:absolute;left:16px;top:16px;background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff;padding:8px 12px;border-radius:10px}
+
+.loading{margin-top:14px;color:var(--amber);font-style:italic}
+
+.footer{padding:18px 12px;text-align:center;background:#0f172a;color:#fff}
+.footer__brand{font-weight:800}
+.footer__sub{opacity:.85}
+
+.menu-header{padding:56px 16px;text-align:center;background:linear-gradient(135deg,#0f172a,#334155);color:#fff;position:sticky;top:0;z-index:5}
+.menu-title{font-family:Georgia,serif;font-size:clamp(22px,5vw,34px)}
+.menu-sub{opacity:.9;margin-top:4px}
+
+.menu{padding:20px 14px;max-width:920px;margin:0 auto}
+
+.card{background:var(--paper);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);margin:16px 0;overflow:hidden}
+.card__title{background:linear-gradient(90deg,var(--gold),var(--amber));color:#fff;padding:12px 16px;font:700 16px/1.2 Georgia,serif;letter-spacing:.04em;text-align:center}
+
+.list{list-style:none;padding:6px 10px}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 6px;border-bottom:1px dashed var(--border)}
+.row:last-child{border-bottom:none}
+.row--center{justify-content:center}
+
+.name{flex:1;min-width:0}
+.price{font-weight:800;color:#b45309}
+
+.list--terms li{padding:10px 6px;border-bottom:1px dashed var(--border)}
+.list--terms li:last-child{border-bottom:none}
+
+/* Mobile optimizations */
+@media (max-width:560px){
+  .row{padding:10px 2px}
+  .name{font-size:15px}
+  .price{font-size:15px}
+}
+/* Normalize default element spacing */
+h1,h2,h3,h4,h5,h6,
+p,ul,ol,li { margin: 0; }
+ul,ol { padding-left: 0; list-style: none; }
+
+/* Tighten card and list spacing */
+.card { margin: 12px 0; }        /* was 16px; trim if needed */
+.list { padding: 4px 8px; }      /* was 6px 10px */
+
+/* Control flex row spacing explicitly */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;   /* avoid distributing space */
+  gap: 8px;                      /* explicit gap instead of free space */
+  padding: 8px 4px;              /* reduce vertical padding */
+  border-bottom: 1px dashed var(--border);
+}
+.row > .name { flex: 1 1 auto; min-width: 0; }
+.row > .price { flex: 0 0 auto; }
+
+/* Avoid unexpected growth or shrink creating white space */
+.row > * { flex-grow: 0; flex-shrink: 1; }
+
+/* Header spacing: avoid collapsed margins by using padding only */
+.menu-header {
+  padding-top: 48px;             /* reduce from 56px if needed */
+  padding-bottom: 8px;
+}
+.menu-header .logo { margin-bottom: 6px; } /* already present at ≥640px */
+
+/* Intro/hero spacing trims (optional) */
+.hero { padding: 36px 16px; }    /* was 48px; adjust to taste */
+.intro { padding: 40px 16px; gap: 6px; }
+
+/* Mobile tightening */
+@media (max-width:560px){
+  .row { padding: 8px 2px; gap: 6px; }
+  .name, .price { font-size: 15px; }
+}
+
+/* If there’s mysterious space around inline-blocks (unlikely here), ensure none: */
+* { letter-spacing: normal; word-spacing: normal; }
