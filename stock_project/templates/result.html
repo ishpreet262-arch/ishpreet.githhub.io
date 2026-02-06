@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Result</title>
+<style>
+body{
+    font-family:Arial;
+    background:#020617;
+    color:white;
+    text-align:center;
+}
+.card{
+    background:#111827;
+    padding:30px;
+    margin:40px auto;
+    width:450px;
+    border-radius:15px;
+    box-shadow:0 0 25px rgba(0,0,0,0.8);
+}
+.green{color:#22c55e;}
+.red{color:#ef4444;}
+img{
+    margin-top:20px;
+    border-radius:10px;
+}
+.footer{
+margin-top:20px;
+color:gray;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📊 Prediction Result</h1>
+
+<div class="card">
+<h2>{{stock}}</h2>
+<p>Current Price: ₹ {{price}}</p>
+<p>Predicted Price: ₹ {{prediction}}</p>
+
+{% if signal == "BUY 📈" %}
+<h2 class="green">{{signal}}</h2>
+{% else %}
+<h2 class="red">{{signal}}</h2>
+{% endif %}
+
+<img src="/static/graph.png" width="400">
+
+<div class="footer">AI Analysis based prediction</div>
+</div>
+
+</body>
+</html>
